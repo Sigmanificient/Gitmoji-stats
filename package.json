@@ -7,7 +7,9 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.16"
+    "chart.js": "^3.5.1",
+    "vue": "^3.2.16",
+    "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.2",
