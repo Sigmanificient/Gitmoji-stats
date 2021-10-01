@@ -6,7 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <a class="btn" href="{{ url }}">{{ text }}</a>
+  <a class="btn" v-bind:href="url">{{ text }}</a>
 </template>
 
 <style scoped>
