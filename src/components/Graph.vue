@@ -1,13 +1,19 @@
 <script setup>
 function searchGithubRepo() {
-  console.log('hello world!')
+  let input = document.getElementById('search-github-repo')
+
+  console.log(input.value);
 }
 </script>
 
 <template>
   <div class="wrap">
     <div class="form">
-      <input type="text" placeholder="Search your Github repository...">
+      <input
+          id="search-github-repo"
+          type="text"
+          placeholder="Search your Github repository..."
+      >
       <button class="btn" type="button" @click="searchGithubRepo()">Search</button>
     </div>
     <div class="graph">
