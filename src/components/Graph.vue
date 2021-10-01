@@ -23,39 +23,39 @@ function searchGithubRepo() {
 </template>
 
 <style scoped>
-  .wrap {
-    padding: 4em;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+.wrap {
+  padding: 4em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-  .graph {
-    margin-top: 2em;
-    height: 600px;
-    width: 100%;
-    background-color: var(--cardBackground);
-    border-radius: 4px;
-  }
+#graph {
+  margin-top: 2em;
+  height: 600px;
+  width: 100%;
+  background-color: var(--cardBackground);
+  border-radius: 4px;
+}
 
-  .form {
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    gap: 1em;
-  }
+.form {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 1em;
+}
 
-  .form input {
-    color: var(--textInSecondary);
-    background-color: var(--cardBackground);
-    border-radius: 4px;
-    border: 0;
-    flex: 1 1;
-    font-size: 1rem;
-    padding: 1rem;
-    margin-right: 1rem;
-  }
+.form input {
+  color: var(--textInSecondary);
+  background-color: var(--cardBackground);
+  border-radius: 4px;
+  border: 0;
+  flex: 1 1;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
 
-  .btn {
-    border: 0;
-  }
+.btn {
+  border: 0;
+}
 </style>
