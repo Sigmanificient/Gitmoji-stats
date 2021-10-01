@@ -17,23 +17,23 @@ import ButtonLink from '../components/ButtonLink.vue';
 <style scoped>
 header {
   background-color: var(--primary);
-  padding: 4.5em 2em;
+  padding: 3em 2em;
   text-align: center;
 }
 
 h1 {
   margin-block: 0;
-  font-size: 6em;
+  font-size: 5em;
 }
 
 p#description {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
 .nav-buttons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 2em;
 }
 </style>

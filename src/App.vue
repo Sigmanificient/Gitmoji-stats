@@ -1,8 +1,10 @@
 <script setup>
 import Header from './components/Header.vue';
+import Graph from './components/Graph.vue';
 </script>
 <template>
   <Header/>
+  <Graph/>
 </template>
 
 <style>
@@ -15,6 +17,8 @@ import Header from './components/Header.vue';
 
   --secondary: #ff5a79;
   --secondaryShadow: #f3002e;
+
+  --cardBackground: #2b2b2b;
 }
 
 body {
@@ -30,4 +34,5 @@ body {
   text-align: center;
   color: var(--textInPrimary)
 }
+
 </style>

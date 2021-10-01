@@ -9,7 +9,7 @@ defineProps({
   <a class="btn" v-bind:href="url">{{ text }}</a>
 </template>
 
-<style scoped>
+<style>
 .btn {
   padding: 1em 2em;
   background: var(--secondary);
