@@ -1,32 +1,15 @@
 <script setup>
+import {Chart, LinearScale, registerables} from "chart.js";
+
+Chart.register(...registerables);
+
 function searchGithubRepo() {
   let input = document.getElementById('search-github-repo')
 
   console.log(input.value);
-}
-</script>
-
-<template>
-  <div class="wrap">
-    <div class="form">
-      <input
-          id="search-github-repo"
-          type="text"
-          placeholder="Search your Github repository..."
-      >
-      <button class="btn" type="button" @click="searchGithubRepo()">Search</button>
-    </div>
-    <canvas id="graph" width="400" height="400"></canvas>
-  </div>
-</template>
-<script>
-
-import {Chart, LinearScale, registerables} from "chart.js";
-
-window.onload = () => {
-  Chart.register(...registerables);
 
   let ctx = document.getElementById('graph').getContext('2d');
+
   let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -64,6 +47,22 @@ window.onload = () => {
 }
 </script>
 
+<template>
+  <div class="wrap">
+    <div class="form">
+      <input
+          id="search-github-repo"
+          type="text"
+          placeholder="Search your Github repository..."
+      >
+      <button class="btn" type="button" @click="searchGithubRepo()">Search</button>
+    </div>
+    <div class="graph">
+      <canvas id="graph" width="400" height="400"></canvas>
+    </div>
+  </div>
+</template>
+
 <style scoped>
 .wrap {
   padding: 4em;
@@ -72,9 +71,10 @@ window.onload = () => {
 }
 
 #graph {
-  margin-top: 2em;
+  padding: 2em;
+  margin-top: 3em;
   height: 600px;
-  width: 100%;
+  width: calc(100% - 4em);
   background-color: var(--cardBackground);
   border-radius: 4px;
 }
@@ -83,7 +83,7 @@ window.onload = () => {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
-  gap: 1em;
+  gap: 2em;
 }
 
 .form input {
@@ -94,7 +94,6 @@ window.onload = () => {
   flex: 1 1;
   font-size: 1rem;
   padding: 1rem;
-  margin-right: 1rem;
 }
 
 .btn {
