@@ -1,49 +1,50 @@
 <script setup>
-import {Chart, registerables} from "chart.js";
-
-Chart.register(...registerables);
-
-function searchGithubRepo() {
+function searchGithubRepo()
+{
   let input = document.getElementById('search-github-repo')
+  let commits = getAllCommits(input.value)
+  console.log(commits)
 
-  console.log(input.value);
+  for (let i = 0; i < commits.length; i++) {
+    let commit_name = commits[i];
+    let moji = mapCommitToGitmoji(commit_name)
+    console.log(moji);
+  }
+}
 
-  let ctx = document.getElementById('graph').getContext('2d');
+function getAllCommits(repo) {
+  let commits = [];
+  const API_URL = `https://api.github.com/repos/${repo}/commits`;
 
-  let myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
+  fetch(API_URL)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(commit => {
+        commits.push(commit.commit.message);
+      });
+    })
+    .catch(error => console.error(error))
+
+  return commits;
+}
+
+function mapCommitToGitmoji(commit_name) {
+  const GITMOJI_MAP = {
+    'art': '🎨',
+    'zap': '⚡️',
+    'fire': '🔥',
+    'bug': '🐛',
+    // ...
+  }
+
+  for (let key in GITMOJI_MAP) {
+    console.log(key);
+    if (commit_name.includes(`${key}`) || commit_name.includes(`${GITMOJI_MAP[key]}`)) {
+      return GITMOJI_MAP[key]
     }
-  });
+  }
+
+  return 'unknown'
 }
 </script>
 
